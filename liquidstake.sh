@@ -58,6 +58,8 @@ echo "Total amount to liquid stake: $AMOUNT" | jq -R -c '{"message": .}'
 # Log the timestamp
 echo "$(date +"%Y-%m-%d %H:%M:%S")" | jq -R -c '{"timestamp": .}'
 
+# Rewards are transferred from Dapps Rewards address (in order of their stake ratio corresponding to total liquid stake) to Archway Central Stake Address (here WALLET_NAME="pval5")
+
 # Perform IBC transfer from Archway to Stride
 echo "Performing IBC transfer from Archway to Stride..." | jq -R -c '{"message": .}'
 IBC_TRANSFER_CMD="$ARCHWAYD_BINARY tx ibc-transfer transfer transfer channel-0 $STRIDE_WALLET_ADDRESS ${AMOUNT}uarch --from $WALLET_NAME --home $ARCHWAYD_HOME --keyring-backend $KEYRING_BACKEND --chain-id $CHAIN_ID --node $NODE_URL --gas auto --gas-prices \$("$ARCHWAYD_BINARY" q rewards estimate-fees 1 --node "$NODE_URL" --output json | jq -r '.gas_unit_price | (.amount + .denom)') --gas-adjustment 1.4 -y"
