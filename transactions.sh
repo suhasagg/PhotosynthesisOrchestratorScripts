@@ -51,7 +51,7 @@ execute_with_retries() {
 }
 
 # First loop with random iterations between 4 and 8
-loop_iterations=0
+loop_iterations=5
 echo "First loop will run $loop_iterations times."
 for ((n=1; n<=loop_iterations; n++)); do
     echo "Iteration $n of the first loop."
@@ -68,7 +68,7 @@ for ((n=1; n<=loop_iterations; n++)); do
 done
 
 # Second loop with random iterations between 4 and 8
-loop_iterations=0
+loop_iterations=5
 echo "Second loop will run $loop_iterations times."
 for ((n=1; n<=loop_iterations; n++)); do
     echo "Iteration $n of the second loop."
@@ -85,7 +85,7 @@ for ((n=1; n<=loop_iterations; n++)); do
 done
 
 # Third loop with random iterations between 4 and 8
-loop_iterations=1
+loop_iterations=5
 echo "Third loop will run $loop_iterations times."
 for ((n=1; n<=loop_iterations; n++)); do
     echo "Iteration $n of the third loop."
